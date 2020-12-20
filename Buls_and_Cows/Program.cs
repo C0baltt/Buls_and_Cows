@@ -13,7 +13,7 @@ namespace bulls_and_cows
             var rnd = new Random();
 
             //for (int y =0;y<20 ;y++ )
-            for (; ;)//основной цикл программы
+            for (; ; )//основной цикл программы
             {
                 int cows = 0;
                 int bulls = 0;
@@ -66,7 +66,7 @@ namespace bulls_and_cows
                     int numberHuman;
                     for (; ; )
                     {
-                        Console.WriteLine($"Попытка №{kolichPopytok}.\nВведи четырехзначное число:");
+                        Console.WriteLine($"Попытка № {kolichPopytok}.\nВведи четырехзначное число:");
 
                         input = Console.ReadLine();
                         if (Int32.TryParse(input, out numberHuman))
@@ -91,7 +91,7 @@ namespace bulls_and_cows
                             //Console.ReadLine();
                             continue;
                         }
-                        
+
                     }
                     for (int i = 3; i > -1; i--)//загоняем число пользователя в массив
                     {
@@ -118,7 +118,7 @@ namespace bulls_and_cows
                             }
                         }
                     }
-                    kolichPopytok++;
+
                     if (bulls == 4)//если быков 4, значит число угадано
                     {
                         Console.Write("Поздравляю, вы угадали число! Это ");
@@ -134,34 +134,39 @@ namespace bulls_and_cows
                     Console.WriteLine($"Быков {bulls}, Коров {cows}");//выводим количество быков и коров и далее обнуляем их количство
                     bulls = 0;
                     cows = 0;
+                    kolichPopytok++;
                 }
                 Console.WriteLine();
-
-                Console.WriteLine("Для продолжения введите 1, для завершения введите 0");
-                //int a = Convert.ToInt32(Console.ReadLine());
-                input = Console.ReadLine();
-                if (Int32.TryParse(input, out int a))
+                do
                 {
-                    if (a == 1)
+                    int a;
+                    Console.WriteLine("Для продолжения введите 1, для завершения введите 0");
+                    //int a = Convert.ToInt32(Console.ReadLine());
+                    input = Console.ReadLine();
+                    if (Int32.TryParse(input, out a))
                     {
-                        bulls = 0;
-                        cows = 0;
-                        kolichPopytok = 0;
-                        continue;
-                    }
-                    else if (a == 0)
-                    {
-                        break;
+                        if (a == 1)
+                        {
+                            bulls = 0;
+                            cows = 0;
+                            kolichPopytok = 0;
+                            continue;
+                        }
+                        else if (a == 0)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Допустимые значения только 0 и 1!");
+                        }
                     }
                     else
                     {
                         Console.WriteLine("Допустимые значения только 0 и 1!");
                     }
                 }
-                else
-                {
-                    Console.WriteLine("Допустимые значения только 0 и 1!");
-                }
+                while (a == 0 || a == 1) ;
                 //*/
                 /*if (y == 19)
                 {
