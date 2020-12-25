@@ -10,6 +10,53 @@ namespace bulls_and_cows
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Добро пожаловать! Это игра \"Быки и Коровы \"\n" +
+                "Знаете ли вы правила?\n" +
+                "Введите 1, если знаете и 0, если нет");
+
+            string input;
+            int a;
+            
+            for (; ; )
+            {
+                input = Console.ReadLine();
+                if (Int32.TryParse(input, out a))
+                {
+                    if (a == 1)
+                    {
+                        break;
+                    }
+                    else if (a == 0)
+                    {
+                        Console.WriteLine("Правила игры:\n" +
+                            "Компьютер задумывает четыре различные цифры из 0, 1, 2, ...9.Игрок делает ходы, чтобы узнать эти " +
+                            "цифры и их порядок. Каждый ход состоит из четырёх цифр, 0 может стоять на первом месте." +
+                            "В ответ компьютер показывает число отгаданных цифр, стоящих на своих местах(число быков) и" +
+                            "число отгаданных цифр, стоящих не на своих местах(число коров)." +
+                            "При этом если ввели меньше четырех цифр, остальные заполняются нулями\n" +
+                            "Пример:\n" +
+                            "Компьютер задумал 0834.\n" +
+                            "Игрок сделал ход 8134.\n" +
+                            "Компьютер ответил: 2 быка(цифры 3 и 4) и 1 корова(цифра 8).\n" +
+                            "Для запуска игры нажмите Enter...");
+                        Console.ReadLine();
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Допустимые значения только 0 и 1!");
+                        
+                        continue;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Допустимые значения только 0 и 1!");
+                    continue;
+                }
+            }
+
+
             var rnd = new Random();
             //for (int y =0;y<20 ;y++ )
             for (bool exit1 = false; exit1 == false;)
@@ -17,7 +64,7 @@ namespace bulls_and_cows
                 int cows = 0;
                 int bulls = 0;
 
-                string input;
+
 
                 int[] humanArray = new int[4];
 
@@ -149,35 +196,35 @@ namespace bulls_and_cows
                     Console.WriteLine();
                 }
                 Console.WriteLine("Сыграем еще?\nДля продолжения введите 1, для завершения введите 0");
-                for (; ; ) 
-                { 
-                
-                //int a = Convert.ToInt32(Console.ReadLine());
-                input = Console.ReadLine();
-                if (Int32.TryParse(input, out int a))
+                for (; ; )
                 {
-                    if (a == 1)
+
+                    //int a = Convert.ToInt32(Console.ReadLine());
+                    input = Console.ReadLine();
+                    if (Int32.TryParse(input, out a))
                     {
-                        bulls = 0;
-                        cows = 0;
-                        kolichPopytok = 0;
-                        break;
-                    }
-                    else if (a == 0)
-                    {
-                        exit1 = true;
-                        break;
+                        if (a == 1)
+                        {
+                            bulls = 0;
+                            cows = 0;
+                            kolichPopytok = 0;
+                            break;
+                        }
+                        else if (a == 0)
+                        {
+                            exit1 = true;
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Допустимые значения только 0 и 1!");
+                        }
                     }
                     else
                     {
                         Console.WriteLine("Допустимые значения только 0 и 1!");
                     }
                 }
-                else
-                {
-                    Console.WriteLine("Допустимые значения только 0 и 1!");
-                }
-            }
             }
 
             //*/
