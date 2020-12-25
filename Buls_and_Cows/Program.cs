@@ -137,13 +137,14 @@ namespace bulls_and_cows
                     kolichPopytok++;
                 }
                 Console.WriteLine();
-                do
+
+
+                for (; ; )
                 {
-                    int a;
                     Console.WriteLine("Для продолжения введите 1, для завершения введите 0");
                     //int a = Convert.ToInt32(Console.ReadLine());
                     input = Console.ReadLine();
-                    if (Int32.TryParse(input, out a))
+                    if (Int32.TryParse(input, out int a))
                     {
                         if (a == 1)
                         {
@@ -165,17 +166,19 @@ namespace bulls_and_cows
                     {
                         Console.WriteLine("Допустимые значения только 0 и 1!");
                     }
+
+                    //*/
+                    /*if (y == 19)
+                    {
+                        Console.WriteLine("Последняя итерация");
+                        Console.ReadKey();
+                    }*/
+                    
                 }
-                while (a == 0 || a == 1) ;
-                //*/
-                /*if (y == 19)
-                {
-                    Console.WriteLine("Последняя итерация");
-                    Console.ReadKey();
-                }*/
                 Console.ReadKey();
             }
 
+        
         }
     }
 }
